@@ -2,12 +2,12 @@
 ini_set("display_errors", "1");
 error_reporting(E_ALL);
                 
-    @$prenom = $_POST["prenom"];
-    @$nom = $_POST["nom"];
-    @$email = $_POST["email"];
-    @$role = $_POST["role"];
-    @$mdp = $_POST["mdp"];
-    @$cmdp = $_POST["cmdp"];
+    @$prenom = htmlspecialchars($_POST["prenom"]);
+    @$nom = htmlspecialchars($_POST["nom"]);
+    @$email = htmlspecialchars($_POST["email"]);
+    @$role = htmlspecialchars($_POST["role"]);
+    @$mdp = htmlspecialchars($_POST["mdp"]);
+    @$cmdp = htmlspecialchars($_POST["cmdp"]);
     @$photo = file_get_contents($_FILES["photo"]["tmp_name"]);
     
     if(isset($_POST["valider"])){
@@ -17,37 +17,15 @@ error_reporting(E_ALL);
             if(!preg_match($masque, $email))  {
                 header("Location: ../Vues/inscription_vue.php?email=Email incorrect");
             } 
+            $maxsize = 20000;
+            $size = $_FILES["photo"]["size"];
+            if($size > $maxsize){
+                header("Location: ../Vues/inscription_vue.php?image=Veuillez choisir une image plus petite taille");
+            }
 
                 if(!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     header("Location: ../Vues/inscription_vue.php?email=Veuillez entrer un email correct");
-                } 
-                $tmpName = $_FILES['photo']['tmp_name'];
-                $name = $_FILES['photo']['name'];
-                $size = $_FILES['photo']['size'];
-                $error = $_FILES['photo']['error'];
-                $tabExtension = explode('.', $tmpname);
-                $extension = strtolower(end($tabExtension));
-                $extensions = ['jpg', 'png', 'jpeg', 'gif'];
-                if(in_array($extension, $extensions)){
-                    file_get_contents($_FILES["photo"]["tmp_name"]);
-                }
-                else{
-                    header("Location: ../Vues/inscription_vue.php?image=Mauvaise extension");
-                }
-                $maxSize = 20000;
-                if(in_array($extension, $extensions) && $size <= $maxSize){
-                    file_get_contents($_FILES["photo"]["tmp_name"]);
-                }
-                else{
-                    header("Location: ../Vues/inscription_vue.php?image=Mauvaise extension ou taille trop grande");
-                }
-                if(in_array($extension, $extensions) && $size <= $maxSize && $error == 0){
-                    file_get_contents($_FILES["photo"]["tmp_name"]);
-                }
-                else{
-                    header("Location: ../Vues/inscription_vue.php?image=Une erreur est survenue");
-                }
-                                
+                }             
          if(isset($_POST["prenom"]) && !empty($_POST["prenom"]) && isset($_POST["nom"]) && !empty($_POST["email"]) && isset($_POST["email"]) && !empty($_POST["email"]) && 
             isset($_POST["role"]) && !empty($_POST["role"]) && isset($_POST["mdp"]) && !empty($_POST["mdp"]) && isset($_POST["cmdp"]) && !empty($_POST["cmdp"]) && isset($_FILES["photo"])){
                

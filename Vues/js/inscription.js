@@ -77,4 +77,42 @@ submit.addEventListener("submit", function(e){
         erreur5.innerHTML = "";
     }  
 });
+let mdp = document.getElementById('mdp');
+let i1 = document.getElementById('i1');
+let i2 = document.getElementById('i2');
+i2.style.display = 'none';
+i1.addEventListener('click', function(){
+    if(mdp.type === 'password'){
+        mdp.type = 'text';
+        i1.style.display = 'none';
+        i2.style.display = 'block';
+    }
+})
+i2.addEventListener('click', function(){
+     if(mdp.type === 'text'){
+        mdp.type = 'password';
+        i1.style.display = 'block';
+        i2.style.display = 'none';
+    }
+})
+
+let cmdp = document.getElementById('cmdp');
+let i3 = document.getElementById('i3');
+let i4 = document.getElementById('i4');
+i4.style.display = 'none';
+i3.addEventListener('click', function(){
+    if(cmdp.type === 'password'){
+        cmdp.type = 'text';
+        i3.style.display = 'none';
+        i4.style.display = 'block';
+    }
+})
+i4.addEventListener('click', function(){
+     if(cmdp.type === 'text'){
+        cmdp.type = 'password';
+        i3.style.display = 'block';
+        i4.style.display = 'none';
+    }
+})
+
 

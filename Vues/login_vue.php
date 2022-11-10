@@ -8,6 +8,7 @@ include_once "../Controller/login.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -31,7 +32,7 @@ include_once "../Controller/login.php";
                         </div>
                         <div class="form-floating mb-4 col-lg-12">
                             <label for="pswd">Mot de passe</label>
-                            <input type="password" class="form-control" name="pswd" id="pswd" placeholder="Password"> 
+                            <input type="password" class="form-control" name="pswd" id="pswd" placeholder="Password"><i class="bi bi-eye-fill" id="i1" style="position: absolute;right: 25px;bottom: 2px;font-size:larger;"></i><i class="bi bi-eye-slash-fill" id="i2" style="position: absolute;right: 25px;bottom: 2px;font-size:larger;"></i> 
                             <span id="erreur1"></span>  
                         </div>
                         <div class="form-floating mb-3 col-lg-12 d-flex justify-content-center">

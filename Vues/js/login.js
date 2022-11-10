@@ -29,3 +29,22 @@ connect.addEventListener("submit", function(e){
         erreur1.innerHTML = "";
     }
 });
+
+let pswd = document.getElementById('pswd');
+let i1 = document.getElementById('i1');
+let i2 = document.getElementById('i2');
+i2.style.display = 'none';
+i1.addEventListener('click', function(){
+    if(pswd.type === 'password'){
+        pswd.type = 'text';
+        i1.style.display = 'none';
+        i2.style.display = 'block';
+    }
+})
+i2.addEventListener('click', function(){
+     if(pswd.type === 'text'){
+        pswd.type = 'password';
+        i1.style.display = 'block';
+        i2.style.display = 'none';
+    }
+})

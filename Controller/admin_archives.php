@@ -1,4 +1,6 @@
 <?php
+include_once "session.php";
+init_php_session();
 
 function afficher(){ 
     if(isset($_GET['page'])  && !empty($_GET['page'])){
@@ -15,8 +17,8 @@ function afficher(){
     $parPage = 6;
     $pages = ceil($total / $parPage);
     $debut = ($currentPage * $parPage) - $parPage; 
-
-    $list = "SELECT * FROM utilisateurs WHERE archive = 1 LIMIT $debut, $parPage";
+    $mat = $_SESSION['id'];
+    $list = "SELECT * FROM utilisateurs WHERE id NOT IN ($mat) AND archive = 1 LIMIT $debut, $parPage";
     $result = $dbco->query($list);
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -25,7 +27,7 @@ function afficher(){
             $nom = $_POST["nom"];
             if(!empty($nom)){                   
             include("connection.php");
-            $list = "SELECT * FROM utilisateurs WHERE prenom LIKE '%$nom%' OR nom LIKE '%$nom%' OR email LIKE '%$nom%' OR matricule LIKE '%$nom%' AND archive = 1";
+            $list = "SELECT * FROM utilisateurs WHERE id NOT IN ($mat) AND prenom LIKE '%$nom%' OR nom LIKE '%$nom%' OR email LIKE '%$nom%' OR matricule LIKE '%$nom%' AND archive = 1 LIMIT 6";
             $result = $dbco->query($list);
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
         }

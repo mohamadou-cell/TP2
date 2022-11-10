@@ -8,6 +8,7 @@ include_once "../Controller/users.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -97,19 +98,19 @@ include_once "../Controller/users.php";
                 <div class="container mb-3 row form-inline d-flex justify-content-center">
                     <div class="mb-3 col-lg-4 mr-5">
                         <label for="mdp" class="form-label col-lg-6 font-weight-bold d-flex justify-content-start">MOT DE PASSE<span class="text-danger">*</span></label>
-                        <input type="password" name="mdp"  class="form-control w-100" id="mdp" placeholder="Saisir mot de passe">
+                        <input type="password" name="mdp"  class="form-control w-100" id="mdp" placeholder="Saisir mot de passe"><i class="bi bi-eye-fill" id="i1" style="position: absolute;right: 25px;bottom: 2px;font-size:larger;"></i><i class="bi bi-eye-slash-fill" id="i2" style="position: absolute;right: 25px;bottom: 2px;font-size:larger;"></i> 
                         <span id="erreur4"></span>
                     </div>
                     <div class="mb-3 col-lg-4 ml-5">
                         <label for="cmdp" class="form-label col-lg-6 font-weight-bold d-flex justify-content-start">CONFIRMATION<span class="text-danger">*</span></label>
-                        <input type="password" name="cmdp"  class="form-control w-100" id="cmdp" placeholder="Ressaisir mot de passe ">
+                        <input type="password" name="cmdp"  class="form-control w-100" id="cmdp" placeholder="Ressaisir mot de passe"><i class="bi bi-eye-fill" id="i3" style="position: absolute;right: 25px;bottom: 2px;font-size:larger;"></i><i class="bi bi-eye-slash-fill" id="i4" style="position: absolute;right: 25px;bottom: 2px;font-size:larger;"></i>
                         <span id="erreur5"></span>
                     </div>
                 </div>
                 <div class="container mb-3 row form-inline">
                     <div class="mb-3 col-lg-4" style="margin-left: 129px;">
                         <label for="photo" class="form-label col-lg-3 font-weight-bold d-flex justify-content-start" >PHOTO</label>
-                        <input type="file"  name="photo" class="form-control w-100 align-items-center d-flex align-items-center" id="photo" placeholder="votre nationalite">
+                        <input type="file"  name="photo" class="form-control w-100 align-items-center d-flex align-items-center" id="photo" placeholder="votre nationalite" accept=".jpg, .png, .jpeg, .gif">
                         <?php
                         if(isset($_GET["image"])):
                         $image = $_GET["image"];

@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body class="vh-100 vw-100">
-    <footer class="container-fluid bg-dark d-flex justify-content-center align-items-center mt-5 sticky-lg-bottom" style="height: 100px;position:absolute;bottom: 0px;">
+    <footer class="container-fluid bg-dark d-flex justify-content-center align-items-center mt-5" style="height: 100px;position:absolute;bottom:0px;">
     <p style="color:white;">Copyright &copy; 2022 Groupe :SN SOLID Dev</p>
     </footer>
 </body>

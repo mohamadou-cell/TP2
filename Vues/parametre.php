@@ -22,6 +22,43 @@
       <a href="archives_admin.php" class="w-50"><button class="btn btn-light w-100 font-weight-bold border border-dark" style="color: black;">ARCHIVES</button></a>
     </div>
   </div>
+              <div style="display:flex; flex-direction:column;justify-content:center;width:100%;">
+              <div class="container-fluid d-flex flex-direction-column justify-content-center mt-5">
+                <?php
+                if(isset($_GET["reussie"])):
+                $email = $_GET["reussie"];
+                ?>
+                    <p class="d-flex text-black justify-content-center font-weight-bold text-uppercase fs-2 bg-warning align-items-center p-2"> <?php echo $email;  ?> </p> 
+                <?php endif; ?>
+            </div>
+            <div class="container-fluid d-flex flex-direction-column justify-content-center mt-5">
+            <?php
+                        if(isset($_GET["echec"])):
+                        $email = $_GET["echec"];
+                        ?>
+                    <p class="d-flex text-white justify-content-center font-weight-bold text-uppercase fs-2 bg-danger align-items-center p-2"> <?php echo $email;  ?> </p> 
+                    <?php endif; ?>
+            </div>
+            <div class="w-100 d-flex justify-content-center"> 
+                <form action="../Controller/image.php" method="post" class="bg-primary p-3" style="border-radius: 10px;width: 20%;" enctype="multipart/form-data" id="valide">
+                  <div class="mb-3">
+                      <label for="message-text" class="col-form-label" style="color: white;">Choisir une image</label>
+                      <input type="file" class="form-control" id="image" name="image" accept=".jpg, .png, .jpeg, .gif">
+                      <span id="erreur7"></span>
+                      <?php
+                        if(isset($_GET["image"])):
+                        $image = $_GET["image"];
+                        ?>
+                    <p class="text-danger"> <?php echo $image;  ?> </p> 
+                    <?php endif; ?>
+                  </div>
+                  <div class="mb-3">
+                      <input type="submit" class="btn btn-light" name="valide" value="MODIFIER">
+                  </div>
+                </form>
+                </div>
+
+              </div>
              <div class="container-fluid d-flex flex-direction-column justify-content-center mt-5">
                 <?php
                 if(isset($_GET["success"])):
@@ -52,23 +89,18 @@
       <div class="modal-body">
         <form method="post" action="../Controller/parametre.php" id="submit">
             <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Entrer votre email</label>
-                <input type="text" class="form-control" id="email" name="email">
-                <span id="erreur"></span>
-            </div>
-            <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Actuel mot de passe</label>
-                <input type="password" class="form-control" id="amdp" name="amdp">
+                <input type="password" class="form-control" id="amdp" name="amdp"><i class="bi bi-eye-fill" id="i1" style="position: absolute;right:25px;top: 60px;font-size:larger;"></i><i class="bi bi-eye-slash-fill" id="i2" style="position: absolute;right:25px;top: 60px;font-size:larger;"></i>
                 <span id="erreur0"></span>
             </div>
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Nouveau mot de passe</label>
-                <input type="password" class="form-control" id="nmdp" name="nmdp">
+                <input type="password" class="form-control" id="nmdp" name="nmdp"><i class="bi bi-eye-fill" id="i3" style="position: absolute;right:25px;top: 150px;font-size:larger;"></i><i class="bi bi-eye-slash-fill" id="i4" style="position: absolute;right:25px;top: 150px;font-size:larger;"></i>
                 <span id="erreur1"></span>
             </div>
             <div class="mb-3">
                 <label for="message-text" class="col-form-label">Confirmer mot de passe</label>
-                <input type="password" class="form-control" id="cmdp" name="cmdp">
+                <input type="password" class="form-control" id="cmdp" name="cmdp"><i class="bi bi-eye-fill" id="i5" style="position: absolute;right:25px;top: 245px;font-size:larger;"></i><i class="bi bi-eye-slash-fill" id="i6" style="position: absolute;right:25px;top: 245px;font-size:larger;"></i>
                 <span id="erreur2"></span>
             </div>
             <div class="mb-3">

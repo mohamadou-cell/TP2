@@ -1,4 +1,6 @@
 <?php
+include_once "session.php";
+init_php_session();
 
 function afficher(){ 
     if(isset($_GET['page'])  && !empty($_GET['page'])){
@@ -15,8 +17,8 @@ function afficher(){
     $parPage = 6;
     $pages = ceil($total / $parPage);
     $debut = ($currentPage * $parPage) - $parPage; 
-
-    $list = "SELECT * FROM utilisateurs WHERE archive = 0 LIMIT $debut, $parPage";
+    $mat = $_SESSION['id'];
+    $list = "SELECT * FROM utilisateurs WHERE id NOT IN ($mat) AND archive = 0 LIMIT $debut, $parPage";
     $result = $dbco->query($list);
     $data = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -25,7 +27,7 @@ function afficher(){
             $nom = $_POST["nom"];
             if(!empty($nom)){                   
             include("connection.php");
-            $list = "SELECT * FROM utilisateurs WHERE prenom LIKE '%$nom%' OR nom LIKE '%$nom%' OR email LIKE '%$nom%' OR matricule LIKE '%$nom%' AND archive = 0";
+            $list = "SELECT * FROM utilisateurs WHERE id NOT IN ($mat) AND prenom LIKE '%$nom%' OR nom LIKE '%$nom%' OR email LIKE '%$nom%' OR matricule LIKE '%$nom%' AND archive = 0 LIMIT 6";
             $result = $dbco->query($list);
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -164,9 +166,10 @@ function popup(){
                 $nom = $data["nom"];
                 $email = $data["email"];
                 
-                echo "<form action='../Vues/accueil_admin.php?id_conf=$id' method='post' style='display:flex; flex-direction:column;justify-content:center;width:20%;gap: 10px;z-index: index;' class='border border-dark p-3'>
-                <h2>Modification</h2><input value='$prenom' name='prenom' class='d-flex justify-content-center'><input value='$nom' name='nom'><input value='$email' name='email'>
-                <input class='btn btn-warning' value='Modifier' type='submit' name='valide'></form>";
+                echo "<form action='../Vues/accueil_admin.php?id_conf=$id' method='post' style='display:flex; flex-direction:column;justify-content:center;width:100%;gap: 10px;z-index: 6;border-radius: 10px;' class='border border-secondary p-3 bg-info'>
+                <h2>Modification</h2><input class='form-control w-100' value='$prenom' name='prenom' class='d-flex justify-content-center'>
+                <input class='form-control w-100' value='$nom' name='nom'><input class='form-control w-100' value='$email' name='email'>
+                <input class='btn btn-warning class='form-control w-100' value='Modifier' type='submit' name='valide'></form>";
                 }   
             
             }

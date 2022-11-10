@@ -17,9 +17,8 @@
   </header>
   <main>
   <div class="container-fluid d-flex justify-content-center mt-5 mb-5">
-    <div class="d-flex w-25 border border-dark">
+    <div class="d-flex w-25 justify-content-center">
       <a href="accueil_user.php" class="w-50"><button class="btn btn-dark w-100 font-weight-bold">USERS</button></a>
-      <a href="archives_user.php" class="w-50"><button class="btn btn-light w-100 font-weight-bold" style="color: black;">ARCHIVES</button></a>
     </div>
   </div>
   <div class="d-flex justify-content-center">

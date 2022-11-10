@@ -14,12 +14,20 @@
     <div class="logo container-fluid w-100 d-flex align-items-center" style="background-color:#0BF0FF;position:fixed-top; height: 150px; gap:20px;" >
             <div class="container-fluid"><img src="images/image.jpeg" data-toggle="modal" data-target="#exampleModal" style="float: left;"></div>
             <div>
+            <a href="parametre.php">
               <?php
-                include_once "../Controller/session.php";
+                include_once "../Controller/session.php";     
                 init_php_session();
+                $id = $_SESSION["id"];
+                include_once "../Controller/connection.php";
+                $list = "SELECT photo FROM utilisateurs WHERE id = $id";
+                  $result = $dbco->query($list);
+                  $data = $result->fetch(PDO::FETCH_ASSOC);
+                  
                 
-                echo '<img src="data:image;base64,'.base64_encode($_SESSION["photo"]).'" style="width: 100px;height:100px;border-radius:50%;"/>';
+                echo '<img src="data:image;base64,'.base64_encode($data["photo"]).'" style="width: 100px;height:100px;border-radius:50%;"/>';
               ?>
+              </a>
             </div>
             <div style="width: 200px;">
             <div class="d-flex" style="gap: 10px;">
