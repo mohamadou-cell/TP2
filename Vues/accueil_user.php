@@ -21,9 +21,7 @@
       <a href="accueil_user.php" class="w-50"><button class="btn btn-dark w-100 font-weight-bold">USERS</button></a>
     </div>
   </div>
-  <div class="d-flex justify-content-center">
-        
-        </div>
+  
       
         <?php
             include_once "../Controller/user_simple.php";

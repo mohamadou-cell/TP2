@@ -24,7 +24,7 @@
                 $sth->execute();
                 $res = $sth->fetch(PDO::FETCH_ASSOC); 
                 if(count($res) > 0 && password_verify($pass, $res["mot_de_passe"]) && $res["roles"] == "Admin" && $res["archive"] == 0){ 
-                    $_SESSION["autoriser"] = "oui";
+                    
                     $_SESSION["id"] = $res["id"]; 
                     $_SESSION["prenom"] = $res["prenom"]; 
                     $_SESSION["nom"] = $res["nom"];
@@ -34,7 +34,7 @@
                     header("Location: ../Vues/accueil_admin.php");
                 }
                 elseif(count($res) > 0 && password_verify($pass, $res["mot_de_passe"]) && $res["roles"] == "User" && $res["archive"] == 0){
-                    $_SESSION["autoriser"] = "oui";
+                    
                     $_SESSION["id"] = $res["id"]; 
                     $_SESSION["prenom"] = $res["prenom"]; 
                     $_SESSION["nom"] = $res["nom"];

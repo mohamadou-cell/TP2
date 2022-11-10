@@ -27,7 +27,7 @@ function afficher(){
             $nom = $_POST["nom"];
             if(!empty($nom)){                   
             include("connection.php");
-            $list = "SELECT * FROM utilisateurs WHERE id NOT IN ($mat) AND prenom LIKE '%$nom%' OR nom LIKE '%$nom%' OR email LIKE '%$nom%' OR matricule LIKE '%$nom%' AND archive = 1 LIMIT 6";
+            $list = "SELECT * FROM utilisateurs WHERE prenom LIKE '%$nom%' OR nom LIKE '%$nom%' OR email LIKE '%$nom%' OR matricule LIKE '%$nom%' AND id NOT IN ($mat) AND archive = 1 LIMIT 6";
             $result = $dbco->query($list);
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
         }

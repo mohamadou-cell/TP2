@@ -52,7 +52,6 @@ function afficher(){
             <th scope="col" class="col-lg-2">NOM</th>
             <th scope="col" class="col-lg-2">EMAIL</th>
             <th scope="col" class="col-lg-2">MATRICULE</th>
-            <th scope="col" class="col-lg-2">ROLE</th>
             <th scope="col" class="col-lg-2">DATE INSCRIPTION</th>
           </tr>
         </thead>';
@@ -63,7 +62,6 @@ function afficher(){
             <td>".$donnees["nom"]."</td>
             <td>".$donnees["email"]."</td>
             <td>".$donnees["matricule"]."</td>
-            <td>".$donnees["roles"]."</td>
             <td>".$donnees["dateInscription"]."</td>";
         echo '</tr>';
         }

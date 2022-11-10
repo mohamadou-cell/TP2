@@ -22,9 +22,7 @@
       <a href="archives_admin.php" class="w-50"><button class="btn btn-dark w-100 font-weight-bold">ARCHIVES</button></a>
     </div>
   </div>
-  <div class="d-flex justify-content-center">
-        
-        </div>
+ 
  
         <?php
             include_once "../Controller/admin_archives.php";
