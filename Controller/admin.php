@@ -65,7 +65,7 @@ function afficher(){
             <td>".$donnees["roles"]."</td>";
         
         echo "<td style='display:flex;gap:50px; justify-content:center;'>";
-        echo "<a href='../Vues/accueil_admin.php?id_ar=$id' onclick='return confirm(\"Êtes-vous sûr de vouloir archiver\")'><i class='bi bi-arrow-down-square'></i></a>";
+        echo "<a href='../Vues/accueil_admin.php?id=$id'><i class='bi bi-arrow-down-square'></i></a>";
         echo "<a href='../Vues/accueil_admin.php?id_mod=$id'><i class='bi bi-box-arrow-up-right'></i></a>";
         echo "<a href='../Vues/accueil_admin.php?id_switch=$id'><i class='bi bi-arrow-left-right'></i></a>";
         echo "</td";
@@ -117,7 +117,20 @@ function afficher(){
             </nav>
           </div>";
         }
-            
+        
+function popup_archiver(){
+    if(isset($_GET["id"])){
+        $id = $_GET["id"];
+    echo "<div style='display:flex; flex-direction:column;justify-content:center;width:100%;background-color:grey;border_radius: 10px;' class='p-3'>
+            <h4 style='color:white;'>Confirmation</h4></br>
+            <p style='color:white;'>Êtes-vous sûre de vouloir archiver ?</p>
+            <div style='display:flex;justify-content:end;gap: 20px;'>
+                <a href='accueil_admin.php'><button type='button' class='btn btn-info' data-bs-dismiss='modal class='btn-close'>Annuler</button></a>
+                <a href='accueil_admin.php?id_ar=$id'><button type='button' class='btn btn-primary'>Confirmer</button></a>
+                        </div>
+                    </div>";
+                } 
+}           
 
 function archiver(){
     if(isset($_GET["id_ar"])){
@@ -127,7 +140,7 @@ function archiver(){
                $date_archive = date('y-m-d');
                 $list = "UPDATE utilisateurs SET archive = '1', dateArchive = '$date_archive' WHERE id=$id";
                 $dbco->query($list);
-     
+                
         }
     }
 }
@@ -145,7 +158,7 @@ function switcher(){
                     $list = "UPDATE utilisateurs SET roles = 'User' WHERE id=$id";
                     $dbco->query($list);
                 }
-                if($role == "User"){
+                else{
                     $list = "UPDATE utilisateurs SET roles = 'Admin' WHERE id=$id";
                     $dbco->query($list);
                 }
@@ -153,7 +166,7 @@ function switcher(){
     }
 }
 
-function popup(){
+function popup_modifier(){
     if(isset($_GET["id_mod"])){
         $id = $_GET["id_mod"];
         if(!empty($id) && is_numeric($id)){

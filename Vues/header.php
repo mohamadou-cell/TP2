@@ -56,7 +56,7 @@
                         <div >
                             <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="click"></button>
                             <ul class="dropdown-menu" id="list" style="display:block;list-style:none;border:0px;background:none;">
-                                <li><button class="bg-primary mb-1 w-75" type="submit" style="border-radius: 15px;"><a href="login_vue.php" class="text-light" ><i class="bi bi-box-arrow-right"></i><br>Deconnection</a></button></li>
+                                <li><button class="bg-primary mb-1 w-75" type="submit" style="border-radius: 15px;"><a href="index.php" class="text-light" ><i class="bi bi-box-arrow-right"></i><br>Deconnection</a></button></li>
                                 <li><button class="bg-secondary w-75" type="submit" style="border-radius: 15px;"><a href="parametre.php" class="text-light"><i class="bi bi-gear"></i><br>Parametres</a></button></li>
                             </ul>
                         </div>

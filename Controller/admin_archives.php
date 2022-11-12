@@ -65,7 +65,7 @@ function afficher(){
             <td>".$donnees["roles"]."</td>";
         
         echo "<td style='display:flex;gap:50px; justify-content:center;'>";
-        echo "<a href='../Vues/archives_admin.php?id_ar=$id' onclick='return confirm(\"Êtes-vous sûr de vouloir desarchiver\")'><i class='bi bi-arrow-up-square'></i></a>";
+        echo "<a href='../Vues/archives_admin.php?id=$id'><i class='bi bi-arrow-up-square'></i></a>";
         echo "</td";
         echo '</tr>';
         }
@@ -116,6 +116,19 @@ function afficher(){
           </div>";
         }
 
+function popup_desarchiver(){
+    if(isset($_GET["id"])){
+    $id = $_GET["id"];
+    echo "<div style='display:flex; flex-direction:column;justify-content:center;width:100%;background-color:grey;border_radius: 10px;' class='p-3'>
+            <h4 style='color:white;'>Confirmation</h4></br>
+            <p style='color:white;'>Êtes-vous sûre de vouloir désarchiver ?</p>
+            <div style='display:flex;justify-content:end;gap: 20px;'>
+                <a href='archives_admin.php'><button type='button' class='btn btn-info' data-bs-dismiss='modal class='btn-close'>Annuler</button></a>
+                <a href='archives_admin.php?id_ar=$id'><button type='button' class='btn btn-primary'>Confirmer</button></a>
+            </div>
+        </div>";
+    } 
+}  
 
 function desarchiver(){
     if(isset($_GET["id_ar"])){
@@ -124,7 +137,6 @@ function desarchiver(){
             include("connection.php");
                 $list = "UPDATE utilisateurs SET archive = '0' WHERE id=$id";
                 $dbco->query($list);
-                die();
      
         }
     }

@@ -124,7 +124,7 @@ include_once "../Controller/users.php";
                         <input class="btn btn-primary w-50 font-weight-bold" type="submit" name="valider" value="ENVOYER">
                     </div>
                     <div class="mb-3 col-lg-4 ml-5">
-                        <a href="login_vue.php" class="font-weight-bold d-flex justify-content-center">Connection ?</a>
+                        <a href="index.php" class="font-weight-bold d-flex justify-content-center">Connection ?</a>
                     </div>
                 </div>  
             </form>

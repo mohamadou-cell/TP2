@@ -22,12 +22,18 @@
       <a href="archives_admin.php" class="w-50"><button class="btn btn-dark w-100 font-weight-bold">ARCHIVES</button></a>
     </div>
   </div>
- 
+  <div id="mod" class="d-flex justify-content-center" style="width:20%;position: absolute;left:40%;bottom:0%;">
+        <?php
+            include_once "../Controller/admin_archives.php";
+            popup_desarchiver();
+            desarchiver();
+          ?>
+        </div>
  
         <?php
             include_once "../Controller/admin_archives.php";
             afficher();
-            desarchiver();
+            
             
         ?>
     

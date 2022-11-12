@@ -44,10 +44,10 @@
                     header("Location: ../Vues/accueil_user.php");
                 }
                 elseif(count($res) > 0 && password_verify($pass, $res["mot_de_passe"]) && $res["archive"] == 1){ 
-                    header("Location: ../Vues/login_vue.php?email=Vous êtes archivés !");
+                    header("Location: ../Vues/index.php?email=Vous êtes archivés !");
                 }    
                 else{
-                    header("Location: ../Vues/login_vue.php?email=Compte inéxistant, inscrivez-vous !");
+                    header("Location: ../Vues/index.php?email=Compte inéxistant, inscrivez-vous !");
                 }
            
             }
